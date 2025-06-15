@@ -7,4 +7,8 @@
     <RootNamespace>Repository_pattern</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
 </Project>
