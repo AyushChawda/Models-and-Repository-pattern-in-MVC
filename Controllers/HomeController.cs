@@ -1,16 +1,35 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Repository_pattern.Models;
+using Repository_pattern.Repository;
 
 namespace Repository_pattern.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    
+    // Reading the StudentRepository 
+    private readonly StudentRepository _StudentRepository = null;
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
+
+        // Creating the instance of StudentRepository to use its methods 
+        _StudentRepository = new StudentRepository();
+    }
+
+    // Method to get that call the getAllStudent Method of StudentRepository 
+    public List<StudentModel> getAllStudent()
+    {
+        return _StudentRepository.getAllStudent();
+    }
+
+    // Method to get that call the getStudentById Method of StudentRepository 
+    public StudentModel getStudentById(int id)
+    {
+        return _StudentRepository.getStudentById(id);
     }
 
     public IActionResult Index()
