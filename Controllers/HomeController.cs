@@ -61,9 +61,19 @@ public class HomeController : Controller
 
         return View();
     }
+
+    // Strongly typed view
     public IActionResult Privacy()
     {
-        return View();
+        EmployeeModel emp = new EmployeeModel()
+        {
+            eId = 101,
+            eName = "Vaibhav",
+            eAge = 29,
+            ePosition = "Sells manager"
+
+        };
+        return View(emp);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
