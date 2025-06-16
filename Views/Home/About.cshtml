@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+    var Employe = ViewBag.employee as EmployeeModel;
+}
+
+<h1>About</h1>
+<div>
+    <h2>Passing data from model to viewx</h2>
+    <p>@Employe.eId</p>
+    <p>@Employe.eName</p>
+</div>
+

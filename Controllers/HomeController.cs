@@ -46,6 +46,21 @@ public class HomeController : Controller
         return View();
     }
 
+
+    public IActionResult About()
+    {
+        EmployeeModel emp = new EmployeeModel()
+        {
+            eId = 101,
+            eName="Vaibhav",
+            eAge=29,
+            ePosition="Sells manager"
+
+        };
+        ViewBag.employee = emp;
+
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
