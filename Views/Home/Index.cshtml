@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Repository_pattern.Models.FormModel
+@{
     ViewData["Title"] = "Home Page";
     var student =(List<StudentModel>) ViewData["student"]; 
 }
@@ -7,6 +8,33 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@* Creating Form using tag helper *@
+
+<div class="container" style="display:flex; justify-content:center; align-items:center" >
+    
+    <div class="row" >
+        <div class="col-lg" style="border:2px solid black; padding:20px">
+            <h1>Form Creating</h1>
+
+            <form asp-action="Index" asp-controller="Home" method="post" class="d-grid">
+                <input asp-for="Name" placeholder="Enter name" class="form-control" />
+                <br />
+                <input asp-for="Age" placeholder="Enter your age" class="form-control" />
+                <br />
+                <input asp-for="Gander" placeholder="Enter you gander" class="form-control" />
+                <br />
+                <input type="email" asp-for="Email" placeholder="Enter your Email" class="form-control" />
+                <br />
+                <input type="password" asp-for="Password" placeholder="Enter your Password" class="form-control" />
+                <br />
+                <input type="submit" value="Submit" class="btn-outline-primary" />
+            </form>
+
+        </div>
+    </div>
 </div>
 
 <div>
