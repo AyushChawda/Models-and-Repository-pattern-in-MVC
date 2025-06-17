@@ -62,6 +62,12 @@ public class HomeController : Controller
         return View();
     }
 
+    // Tag Helpers 
+    public IActionResult Contact()
+    {
+        return View();
+    }
+
     // Strongly typed view
     public IActionResult Privacy()
     {
@@ -75,6 +81,8 @@ public class HomeController : Controller
         };
         return View(emp);
     }
+
+  
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
