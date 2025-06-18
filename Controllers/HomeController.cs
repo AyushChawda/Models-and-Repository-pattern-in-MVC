@@ -46,6 +46,12 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public string Index(FormModel data)
+    {
+        return "Name :-" +data.Name+" Age :-"+data.Age+" Gander:-"+data.gander+" Email:-"+data.Email+" Passward:-"+data.Password;
+    }
+
 
     public IActionResult About()
     {
