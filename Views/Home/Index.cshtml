@@ -11,33 +11,10 @@
 </div>
 
 
-@* Creating Form using tag helper *@
-
-<div class="container" style="display:flex; justify-content:center; align-items:center" >
-    
-    <div class="row" >
-        <div class="col-lg" style="border:2px solid black; padding:20px">
-            <h1>Form Creating</h1>
-
-            <form asp-action="Index" asp-controller="Home" method="post" class="d-grid">
-                <input asp-for="Name" placeholder="Enter name" class="form-control" />
-                <br />
-                <input asp-for="Age" placeholder="Enter your age" class="form-control" />
-                <br />
-                <input asp-for="Gander" placeholder="Enter you gander" class="form-control" />
-                <br />
-                <input type="email" asp-for="Email" placeholder="Enter your Email" class="form-control" />
-                <br />
-                <input type="password" asp-for="Password" placeholder="Enter your Password" class="form-control" />
-                <br />
-                <input type="submit" value="Submit" class="btn-outline-primary" />
-            </form>
-
-        </div>
-    </div>
-</div>
-
+<hr/>
+@* Using viewBag to show the model data  *@
 <div>
+    <h2>Using View Bag</h2>
     <table>
         <thead>
             <tr>
@@ -65,3 +42,48 @@
     
     </table>
 </div>
+
+<hr />
+
+@* Creating Form using tag helper *@
+
+<div class="container" style="display:flex; justify-content:center; align-items:center">
+
+    <div class="row">
+        <div class="col-lg" style="box-shadow:0px 0px 5px black ; padding:20px">
+            <h1>Form Creating</h1>
+
+            <form asp-action="Index" asp-controller="Home" method="post" class="d-grid">
+                <input asp-for="Name" placeholder="Enter name" class="form-control" />
+                <br />
+                <input asp-for="Age" placeholder="Enter your age" class="form-control" />
+                <br />
+                <select asp-for="gander" class="form-control" asp-items="Html.GetEnumSelectList<Gendar>()">
+                    <option>Select Gander</option>
+                </select>
+                <br />
+
+                <div>
+
+                    <div style="display:flex; justify-content:space-evenly">
+                        <label>Married</label>
+
+                        <input type="radio" class="form-check-input" asp-for="married" value=true />
+                        <label class="form-check-label" for="flexradioDefault1"> Yes</label>
+
+                        <input type="radio" class="form-check-input" asp-for="married" value=false />
+                        <label class="form-check-label" for="flexradioDefault1"> No</label>
+                    </div>
+                </div>
+
+                <br />
+                <input type="email" asp-for="Email" placeholder="Enter your Email" class="form-control" />
+                <br />
+                <input type="password" asp-for="Password" placeholder="Enter your Password" class="form-control" />
+                <br />
+                <input type="submit" value="Submit" class="btn-outline-primary" />
+            </form>
+
+        </div>
+    </div>
+</div>s
