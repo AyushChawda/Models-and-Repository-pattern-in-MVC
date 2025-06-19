@@ -47,9 +47,20 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public string Index(FormModel data)
+    public IActionResult Index(FormModel data)
     {
-        return "Name :-" +data.Name+" Age :-"+data.Age+" Gander:-"+data.gander+" Email:-"+data.Email+" Passward:-"+data.Password;
+        //return "Name :-" +data.Name+" Age :-"+data.Age+" Gander:-"+data.gander+" Email:-"+data.Email+" Passward:-"+data.Password;
+
+        return View(data);
+        
+        //if (ModelState.IsValid)
+        //{
+        //    return "Name :-" + data.Name + " Age :-" + data.Age + " Gander:-" + data.gander + " Email:-" + data.Email + " Passward:-" + data.Password;
+        //}
+        //else
+        //{
+        //    return "Enter the all the required fiels ";
+        //}
     }
 
 
