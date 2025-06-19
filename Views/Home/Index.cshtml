@@ -15,32 +15,37 @@
 @* Using viewBag to show the model data  *@
 <div>
     <h2>Using View Bag</h2>
-    <table>
-        <thead>
-            <tr>
-                <td>Roll no </td>
-                <td>Name </td>
-                <td>Gender </td>
-                <td>Class </td>
-            </tr>
-        </thead>
-
-        <tbody>
-            @{
-                foreach (var item in student)
-                {
+    @{
+        if (student!=null)
+        {
+            <table>
+                <thead>
                     <tr>
-                        <td>@item.rollNo</td>
-                        <td>@item.name</td>
-                        <td>@item.gander</td>
-                        <td>@item.standard</td>
+                        <td>Roll no </td>
+                        <td>Name </td>
+                        <td>Gender </td>
+                        <td>Class </td>
                     </tr>
-                }
-            }
+                </thead>
 
-        </tbody>
-    
-    </table>
+                <tbody>
+                    @{
+                        foreach (var item in student)
+                        {
+                            <tr>
+                                <td>@item.rollNo</td>
+                                <td>@item.name</td>
+                                <td>@item.gander</td>
+                                <td>@item.standard</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+        }
+    }
 </div>
 
 <hr />
@@ -54,13 +59,16 @@
             <h1>Form Creating</h1>
 
             <form asp-action="Index" asp-controller="Home" method="post" class="d-grid">
-                <input asp-for="Name" placeholder="Enter name" class="form-control" />
+                <input asp-for="Name" placeholder="Enter name" class="form-control" required />
+                <span asp-validation-for="Name" style="color:red"></span>
                 <br />
-                <input asp-for="Age" placeholder="Enter your age" class="form-control" />
+                <input asp-for="Age" placeholder="Enter your age" class="form-control" required />
+                <span asp-validation-for="Age" style="color:red"></span>
                 <br />
-                <select asp-for="gander" class="form-control" asp-items="Html.GetEnumSelectList<Gendar>()">
-                    <option>Select Gander</option>
+                <select asp-for="gander" class="form-control" asp-items="Html.GetEnumSelectList<Gendar>()" required>
+                    <option value="" >Select Gander</option>
                 </select>
+                
                 <br />
 
                 <div>
@@ -73,17 +81,23 @@
 
                         <input type="radio" class="form-check-input" asp-for="married" value=false />
                         <label class="form-check-label" for="flexradioDefault1"> No</label>
+
                     </div>
+                    <span asp-validation-for="married" style="color:red"></span>
                 </div>
 
                 <br />
-                <input type="email" asp-for="Email" placeholder="Enter your Email" class="form-control" />
+                <input type="email" asp-for="Email" placeholder="Enter your Email" class="form-control" required />
+                <span asp-validation-for="Email" style="color:red"></span>
+
                 <br />
-                <input type="password" asp-for="Password" placeholder="Enter your Password" class="form-control" />
+                <input type="password" asp-for="Password" placeholder="Enter your Password" class="form-control" required />
+                <span asp-validation-for="Password" style="color:red"></span>
+
                 <br />
                 <input type="submit" value="Submit" class="btn-outline-primary" />
             </form>
 
         </div>
     </div>
-</div>s
+</div>
